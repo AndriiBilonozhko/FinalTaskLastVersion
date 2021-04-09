@@ -20,9 +20,15 @@ public class BasePage {
 
 
 
-    public void scrollToElement(WebElement element) {
+    public void scrollToElement(WebElement element) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
+
+    }
+
+    protected Boolean isErrorExist(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        return (Boolean)js.executeScript("return arguments[0].checkValidity();", element);
 
     }
 }

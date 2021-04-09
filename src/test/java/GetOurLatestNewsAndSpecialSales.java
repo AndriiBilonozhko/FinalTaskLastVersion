@@ -5,17 +5,18 @@ import pages.MainPage;
 
 public class GetOurLatestNewsAndSpecialSales extends BaseTest {
 
-    MainPage mainPage = new MainPage();
+
     @Test
-    public void getOurLatestNewsAndSpecialSales() {
+    public void getOurLatestNewsAndSpecialSales() throws InterruptedException {
 
-        WebElement inputEmailField = mainPage.getInputEmailField();
-        mainPage.scrollToElement(inputEmailField);
-        inputEmailField.sendKeys("tttt@ttt");
+        MainPage mainPage = new MainPage();
 
-        String actualText =
-                mainPage.clickSubscribeButton()
-                        .getTextFromSuccessfullySubscribedFieldWithText();
-        Assert.assertEquals(actualText, "You have successfully subscribed to this newsletter.");
+
+Boolean isErrorTrue=
+                mainPage.setEmail("asdaghb")
+                        .clickSubscribeButton()
+                        .isErrorMessegeExist();
+                Assert.assertFalse(isErrorTrue);
+
     }
 }
