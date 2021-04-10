@@ -15,7 +15,7 @@ public class GetOurLatestNewsAndSpecialSales extends BaseTest {
 Boolean isErrorTrue=
                 mainPage.setEmail("asdaghb")
                         .clickSubscribeButton()
-                        .isErrorMessegeExist();
+                        .isErrorMessageExist();
                 Assert.assertFalse(isErrorTrue);
 
     }

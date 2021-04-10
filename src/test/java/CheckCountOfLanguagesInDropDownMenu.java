@@ -2,18 +2,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class CheckLanguagesInDropDownMenu extends BaseTest {
+public class CheckCountOfLanguagesInDropDownMenu extends BaseTest {
 
 
     @Test
-    public void CheckLanguagesInDropDownMenu() {
+    public void CheckCountOfLanguagesInDropDownMenu() {
 
         MainPage mainPage = new MainPage();
 
         int countOfLanguage =
                 mainPage.clickDropDownMenuWithLanguages()
-                        .getCounOfLanguage();
+                        .getCountOfLanguage();
         Assert.assertEquals(countOfLanguage, 46);
+
+
     }
 
 

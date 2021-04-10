@@ -1,13 +1,9 @@
 package pages;
 
 import lombok.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -24,13 +20,10 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//input[@name='submitNewsletter']")
     private WebElement subscribeButton;
 
-    @FindBy(xpath = "//p[contains(@class,'alert ')]")
-    private WebElement successfullySubscribedFieldWithText;
-
     @FindBy(xpath = "//i[contains(@class,'expand-more')]")
     private WebElement dropDownMenuWithLanguages;
 
-    @FindBy(xpath = "//ul[contains(@class,'dropdown')]")
+    @FindBy(xpath = ".//ul[contains(@class,'dropdown')]/li")
     private List<WebElement> languagesContainers;
 
 
@@ -52,32 +45,29 @@ public class MainPage extends BasePage {
 
 
     public MainPage clickDropDownMenuWithLanguages() {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(dropDownMenuWithLanguages));
-        JavascriptExecutor executor = (JavascriptExecutor) getDriver();
-        executor.executeScript("arguments[0].click();", dropDownMenuWithLanguages);
-
+        dropDownMenuWithLanguages.click();
         return this;
     }
 
-    public Boolean isErrorMessegeExist() {
+    public Boolean isErrorMessageExist() {
 
         return isErrorExist(inputEmailField);
 
 
     }
 
-    public int getCounOfLanguage() {
+    public int getCountOfLanguage() {
         return languagesContainers.size();
 
 
     }
+
+
+    public String getLanguageOutOfTheDropList(String language) {
+        if (languagesContainers.contains(language)) ;
+        return language;
+
+    }
+
 }
-
-//
-//    public List<Language> getAllLanguagesOnPage() {
-//        Language language = new Language();
-//        List<Language> languages = language.getLanguages(languagesContainers);
-//        return languages;
-//    }
-
 

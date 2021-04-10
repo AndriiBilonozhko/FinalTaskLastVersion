@@ -1,10 +1,15 @@
 package blocks;
 
+import lombok.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 
 public class Language {
 
