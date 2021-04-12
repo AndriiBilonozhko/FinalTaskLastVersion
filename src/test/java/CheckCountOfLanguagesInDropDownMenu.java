@@ -1,20 +1,24 @@
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class CheckCountOfLanguagesInDropDownMenu extends BaseTest {
+import java.util.List;
+import java.util.stream.Collectors;
 
+public class CheckCountOfLanguagesInDropDownMenu extends BaseTest {
+    String expectedResult = "Українська";
 
     @Test
     public void CheckCountOfLanguagesInDropDownMenu() {
 
         MainPage mainPage = new MainPage();
 
-        int countOfLanguage =
-                mainPage.clickDropDownMenuWithLanguages()
-                        .getCountOfLanguage();
-        Assert.assertEquals(countOfLanguage, 46);
-
+        mainPage.clickDropDownMenuWithLanguages();
+        List<WebElement> language = mainPage.getLanguagesContainers();
+        List<String> lan = language.stream().map(s -> s.getText()).collect(Collectors.toList());
+        Assert.assertEquals(language.size(), 46);
+        Assert.assertTrue(lan.contains(expectedResult), "List doesn`t contain language " + expectedResult);
 
     }
 

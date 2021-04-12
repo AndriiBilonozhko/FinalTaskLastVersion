@@ -1,9 +1,14 @@
 package pages;
 
+import lombok.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
 public class LogInPage extends BasePage {
 
 
@@ -36,6 +41,9 @@ public class LogInPage extends BasePage {
 
     @FindBy(xpath = "//li[text()='Invalid format.']")
     private WebElement invalidFormMessage;
+
+    @FindBy(xpath = "//div[contains(@class,'form-group')]//li[@class='alert alert-danger']")
+    private WebElement fieldWithInvalidFormText;
 
 
     public LogInPage() {
@@ -95,7 +103,13 @@ public class LogInPage extends BasePage {
     }
 
     public String getColorOfFirstNameField() {
-        return firstNameField.getCssValue("“background-color”");
 
+        return firstNameField.getCssValue("outline");
+
+    }
+
+    public String getTextInvalidForm() {
+
+        return fieldWithInvalidFormText.getText();
     }
 }
