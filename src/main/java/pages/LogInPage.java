@@ -104,7 +104,12 @@ public class LogInPage extends BasePage {
 
     public String getColorOfFirstNameField() {
 
-        return firstNameField.getCssValue("outline");
+    String style= firstNameField.getCssValue("outline");
+    String[] a = style.split("solid");
+    return a[0];
+
+
+
 
     }
 

@@ -1,19 +1,21 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LogInPage;
 import pages.MainPage;
 
-public class colorOfFirstNamePage extends BaseTest {
-
+public class colorAndInvalidMessageOfFirstNameField extends BaseTest {
 
     @Test
-    public void colorOfFirstNamePage() {
+    public void invalidFormTextOfFirstNameField() {
 
         MainPage mainPage = new MainPage();
+        LogInPage logInPage = new LogInPage();
+
         String actualTextInvalidMessage =
                 mainPage.clickSingInButton()
                         .clickCreateNewAccountButton()
                         .ChooseSocialTitle()
-                        .inputFirstName("James3")
+                        .inputFirstName("Jame3s")
                         .inputLastName("sdsaq")
                         .inputEmail("asdkasdvksasdsd@gmail.com")
                         .inputPassword("12345")
@@ -22,11 +24,11 @@ public class colorOfFirstNamePage extends BaseTest {
                         .clickAgreeButton()
                         .clickSaveButtonWithIncorrectDate()
                         .getTextInvalidForm();
-                     //   .getColorOfFirstNameField();
 
+        String actualColorOfField = logInPage.getColorOfFirstNameField();
 
-      //  Assert.assertTrue(!actualColorField.isEmpty());
         Assert.assertEquals(actualTextInvalidMessage, "Invalid format.");
+        Assert.assertEquals(actualColorOfField, "rgb(255, 76, 76) ");
 
     }
 

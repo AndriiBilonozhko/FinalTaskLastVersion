@@ -16,9 +16,9 @@ public class CheckCountOfLanguagesInDropDownMenu extends BaseTest {
 
         mainPage.clickDropDownMenuWithLanguages();
         List<WebElement> language = mainPage.getLanguagesContainers();
-        List<String> lan = language.stream().map(s -> s.getText()).collect(Collectors.toList());
+        List<String> languageList = language.stream().map(s -> s.getText()).collect(Collectors.toList());
         Assert.assertEquals(language.size(), 46);
-        Assert.assertTrue(lan.contains(expectedResult), "List doesn`t contain language " + expectedResult);
+        Assert.assertTrue(languageList.contains(expectedResult), "List doesn`t contain language " + expectedResult);
 
     }
 
