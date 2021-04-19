@@ -23,7 +23,7 @@ String actualAccountName=
                 .ChooseSocialTitle()
                 .inputFirstName(firstName)
                 .inputLastName(secondName)
-                .inputEmail("asdkkassd@gmail.com")
+                .inputEmail("asdd@gmail.com")
                 .inputPassword("12345")
                 .inputBirthdayDate("12/12/1995")
                 .clickCustomerPrivacyButton()

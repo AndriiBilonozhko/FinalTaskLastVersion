@@ -1,12 +1,15 @@
 package pages;
 
+import blocks.Product;
 import lombok.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+
 
 @Getter
 @Setter
@@ -50,6 +53,10 @@ public class MainPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class,'popover')]")
     private WebElement fieldUnderClothesAndAccessoriesButton;
+
+    @FindBy(xpath = "//div[@itemprop='itemListElement']")
+    private List<WebElement> allProductsOnMainPage;
+
 
     public MainPage() {
         PageFactory.initElements(getDriver(), this);
@@ -141,5 +148,15 @@ public class MainPage extends BasePage {
         return fieldUnderClothesAndAccessoriesButton.getText().isEmpty();
 
     }
+
+
+    public int getNumberOfProduct() {
+
+        return  allProductsOnMainPage.size();
+
+    }
+
 }
+
+
 
