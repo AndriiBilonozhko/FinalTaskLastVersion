@@ -2,7 +2,6 @@ package pages;
 
 import blocks.Product;
 import lombok.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -55,7 +54,7 @@ public class MainPage extends BasePage {
     private WebElement fieldUnderClothesAndAccessoriesButton;
 
     @FindBy(xpath = "//div[@itemprop='itemListElement']")
-    private List<WebElement> allProductsOnMainPage;
+    private List<WebElement> productContainer;
 
 
     public MainPage() {
@@ -150,10 +149,10 @@ public class MainPage extends BasePage {
     }
 
 
-    public int getNumberOfProduct() {
-
-        return  allProductsOnMainPage.size();
-
+    public List<Product> getProductsOnPage() {
+        Product product = new Product();
+        List<Product> allProducts = product.getProduct(productContainer);
+        return allProducts;
     }
 
 }
