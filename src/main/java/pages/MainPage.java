@@ -2,6 +2,7 @@ package pages;
 
 import blocks.Product;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-
+@Slf4j
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -64,6 +65,7 @@ public class MainPage extends BasePage {
     public MainPage setEmail(String eMail) throws InterruptedException {
         WebElement element = inputEmailField;
         scrollToElement(element);
+
         inputEmailField.sendKeys(eMail);
         return this;
     }

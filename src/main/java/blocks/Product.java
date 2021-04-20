@@ -1,6 +1,9 @@
 package blocks;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -19,7 +22,6 @@ public class Product {
     private WebElement productName;
 
 
-
     public Product() {
     }
 
@@ -29,8 +31,9 @@ public class Product {
         this.price = container.findElement(By.xpath(".//span[@class='price']"));
         this.productName = container.findElement(By.xpath(".//div[@itemprop='itemListElement']"));
     }
+
     public List<Product> getProduct(List<WebElement> containers) {
-        List<Product> allProduct  = new ArrayList<>();
+        List<Product> allProduct = new ArrayList<>();
         for (WebElement container : containers) {
             allProduct.add(new Product(container));
         }

@@ -1,4 +1,5 @@
-import org.openqa.selenium.WebElement;
+package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -12,11 +13,11 @@ public class GetOurLatestNewsAndSpecialSales extends BaseTest {
         MainPage mainPage = new MainPage();
 
 
-Boolean isErrorTrue=
+        Boolean isErrorTrue =
                 mainPage.setEmail("asdaghb")
                         .clickSubscribeButton()
                         .isErrorMessageExist();
-                Assert.assertFalse(isErrorTrue);
+        Assert.assertFalse(isErrorTrue);
 
     }
 }

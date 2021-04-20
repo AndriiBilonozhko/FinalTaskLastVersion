@@ -4,6 +4,7 @@ import lombok.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -104,11 +105,9 @@ public class LogInPage extends BasePage {
 
     public String getColorOfFirstNameField() {
 
-    String style= firstNameField.getCssValue("outline");
-    String[] a = style.split("solid");
-    return a[0];
-
-
+        String style = firstNameField.getCssValue("outline");
+        String[] a = style.split("solid");
+        return a[0];
 
 
     }

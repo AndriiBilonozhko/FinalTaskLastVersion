@@ -1,10 +1,17 @@
+package tests;
+
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LogInPage;
 import pages.MainPage;
 
-public class colorAndInvalidMessageOfFirstNameField extends BaseTest {
+public class
+colorAndInvalidMessageOfFirstNameField extends BaseTest {
+    public class EventListenerTest {
+        private EventFiringWebDriver decoratedDriver;
 
+    }
     @Test
     public void invalidFormTextOfFirstNameField() {
 

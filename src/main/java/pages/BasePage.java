@@ -43,7 +43,7 @@ public class BasePage {
     }
 
     public String getTextFromUserLoginField() {
-      return   userLoginField.getText();
+        return userLoginField.getText();
 
     }
 }

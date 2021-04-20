@@ -1,8 +1,13 @@
+package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
 public class CheckCategories extends BaseTest {
+
+
+
 
     @Test
     public void CheckCategories() {
