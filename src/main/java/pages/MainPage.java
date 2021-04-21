@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+import static blocks.Product.getProduct;
+
 @Slf4j
 @Getter
 @Setter
@@ -152,8 +154,8 @@ public class MainPage extends BasePage {
 
 
     public List<Product> getProductsOnPage() {
-        Product product = new Product();
-        List<Product> allProducts = product.getProduct(productContainer);
+
+        List<Product> allProducts = getProduct(productContainer);
         return allProducts;
     }
 

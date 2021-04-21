@@ -24,6 +24,14 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.6</version>
+                    </dependency>
+                </dependencies>
+
             </plugin>
 
             <plugin>
@@ -31,20 +39,19 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <!--suppress UnresolvedMavenProperty -->
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-
-
-                        <systemProperties>
-                            <property>
-                                <name>allure.results.directory</name>
-                                <value>${project.build.directory}/reports/allure-results</value>
-                            </property>
-                        </systemProperties>
-
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/reports/allure-results</value>
+                        </property>
+                    </systemProperties>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
+                        <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFile>${project.basedir}/src/test/resources/testNgXmls/${SUITE}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
@@ -64,11 +71,7 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.9.6</version>
-        </dependency>
+
 
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -96,7 +99,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.18</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
 

@@ -29,10 +29,10 @@ public class Product {
 
         this.name = container.findElement(By.xpath(".//a[@itemprop='url']"));
         this.price = container.findElement(By.xpath(".//span[@class='price']"));
-        this.productName = container.findElement(By.xpath(".//div[@itemprop='itemListElement']"));
+
     }
 
-    public List<Product> getProduct(List<WebElement> containers) {
+    public static List<Product> getProduct(List<WebElement> containers) {
         List<Product> allProduct = new ArrayList<>();
         for (WebElement container : containers) {
             allProduct.add(new Product(container));
