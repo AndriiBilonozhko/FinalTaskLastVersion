@@ -59,6 +59,9 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@itemprop='itemListElement']")
     private List<WebElement> productContainer;
 
+    @FindBy(xpath = "//a[contains(@href, 'prices-drop')]")
+    private WebElement pricesDropButton;
+
 
     public MainPage() {
         PageFactory.initElements(getDriver(), this);
@@ -158,6 +161,16 @@ public class MainPage extends BasePage {
         List<Product> allProducts = getProduct(productContainer);
         return allProducts;
     }
+
+    public PricesDropPage clickPricesDropButton() throws InterruptedException {
+        WebElement element = pricesDropButton;
+        scrollToElement(pricesDropButton);
+
+        pricesDropButton.click();
+        return new PricesDropPage();
+
+    }
+
 
 }
 

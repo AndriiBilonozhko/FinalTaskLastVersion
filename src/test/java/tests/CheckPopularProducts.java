@@ -2,6 +2,7 @@ package tests;
 
 import blocks.Product;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -19,6 +20,9 @@ public class CheckPopularProducts extends BaseTest {
         for (Product product : nameOfProducts) {
             assertThat(product.getName().isDisplayed());
             assertThat(product.getPrice().isDisplayed());
+
+            String actualPrice = product.getPrice().getText().replace("€", "");
+            assertThat(Double.parseDouble(actualPrice)).isGreaterThan(0.00);
 
         }
 
