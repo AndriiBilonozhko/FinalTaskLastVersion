@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static DriverFactory.DriverFactory.getDriver;
+
 public class SingInPage extends BasePage {
 
     @FindBy(xpath = "//a[contains(text(),'No account?')]")

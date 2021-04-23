@@ -8,11 +8,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
+import org.openqa.selenium.support.events.WebDriverListener;
 
 @Slf4j
 @Getter
 @Setter
-public class MyListerner implements WebDriverEventListener {
+public class MyListerner implements WebDriverEventListener  {
+
     @Override
     public void beforeAlertAccept(WebDriver driver) {
 
@@ -75,22 +77,22 @@ public class MyListerner implements WebDriverEventListener {
 
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-        log.info("Try to find element" +" "+ by );
+
     }
 
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-        log.info("Success find element" +" "+ by );
+
     }
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
-        log.info("Try to click on" +" "+  element);
+
     }
 
     @Override
     public void afterClickOn(WebElement element, WebDriver driver) {
-        log.info("Success click on "+" "+  element);
+
     }
 
     @Override

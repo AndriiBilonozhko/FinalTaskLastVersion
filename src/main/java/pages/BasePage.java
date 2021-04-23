@@ -1,32 +1,28 @@
 package pages;
 
+import DriverFactory.DriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import static DriverFactory.DriverFactory.getDriver;
 
 public class BasePage {
+
     @FindBy(xpath = "//span[contains(text(),'Sign in')]")
     private WebElement singInButton;
 
     @FindBy(xpath = "//div[@class ='user-info']//span")
     private WebElement userLoginField;
 
-    protected static WebDriver driver;
-
-    public static void setDriver(WebDriver webDriver) {
-        driver = webDriver;
+    public BasePage() {
+        PageFactory.initElements(getDriver(), this);
     }
-
-    public static WebDriver getDriver() {
-        return driver;
-
-
-    }
-
 
     public void scrollToElement(WebElement element) throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
 
     }

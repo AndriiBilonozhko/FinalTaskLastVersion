@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+import static DriverFactory.DriverFactory.getDriver;
 import static blocks.Product.getProduct;
 
 @Slf4j
@@ -107,19 +108,19 @@ public class MainPage extends BasePage {
     }
 
     public MainPage moveToClothesButton() {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(getDriver());
         actions.moveToElement(clothesButton).build().perform();
         return this;
     }
 
     public MainPage moveToAccessoriesButton() {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(getDriver());
         actions.moveToElement(accessoriesButton).build().perform();
         return this;
     }
 
     public MainPage moveToArtButton() {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(getDriver());
         actions.moveToElement(artButton).build().perform();
         return this;
     }
