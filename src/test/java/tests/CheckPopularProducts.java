@@ -19,9 +19,9 @@ public class CheckPopularProducts extends BaseTest {
         List<Product> nameOfProducts = mainPage.getProductsOnPage();
         for (Product product : nameOfProducts) {
             assertThat(product.getName().isDisplayed());
-            assertThat(product.getPrice().isDisplayed());
+            assertThat(product.getNewPrice().isDisplayed());
 
-            String actualPrice = product.getPrice().getText().replace("€", "");
+            String actualPrice = product.getNewPrice().getText().replace("€", "");
             assertThat(Double.parseDouble(actualPrice)).isGreaterThan(0.00);
 
         }

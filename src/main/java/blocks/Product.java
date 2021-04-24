@@ -18,9 +18,9 @@ import java.util.List;
 public class Product {
 
     private WebElement name;
-    private WebElement price;
-    private WebElement productName;
-
+    private WebElement oldPrice;
+    private WebElement newPrice;
+    private WebElement discount;
 
     public Product() {
     }
@@ -28,8 +28,9 @@ public class Product {
     public Product(WebElement container) {
 
         this.name = container.findElement(By.xpath(".//a[@itemprop='url']"));
-        this.price = container.findElement(By.xpath(".//span[@class='price']"));
-
+        this.newPrice = container.findElement(By.xpath(".//span[@class='price']"));
+        this.oldPrice = container.findElement(By.xpath(".//span[@class='regular-price']"));
+        this.discount = container.findElement(By.xpath(".//li[@class='product-flag discount']"));
     }
 
     public static List<Product> getProduct(List<WebElement> containers) {

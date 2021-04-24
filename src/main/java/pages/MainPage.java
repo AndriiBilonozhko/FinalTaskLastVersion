@@ -63,6 +63,9 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//a[contains(@href, 'prices-drop')]")
     private WebElement pricesDropButton;
 
+    @FindBy(xpath = "//a[contains(@class,'all-product')]")
+    private WebElement allProductsButton;
+
 
     public MainPage() {
         PageFactory.initElements(getDriver(), this);
@@ -172,6 +175,14 @@ public class MainPage extends BasePage {
 
     }
 
+    public HomePage clickAllProductsButton() throws InterruptedException {
+        WebElement element = allProductsButton;
+        scrollToElement(allProductsButton);
+
+        allProductsButton.click();
+        return new HomePage();
+
+    }
 
 }
 

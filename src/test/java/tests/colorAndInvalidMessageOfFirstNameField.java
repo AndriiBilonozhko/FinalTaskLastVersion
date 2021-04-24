@@ -13,7 +13,7 @@ colorAndInvalidMessageOfFirstNameField extends BaseTest {
 
     }
     @Test
-    public void invalidFormTextOfFirstNameField() {
+    public void checkInvalidFormTextOfFirstNameField() {
 
         MainPage mainPage = new MainPage();
         LogInPage logInPage = new LogInPage();
