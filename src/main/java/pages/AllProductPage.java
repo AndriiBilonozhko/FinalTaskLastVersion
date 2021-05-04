@@ -10,7 +10,7 @@ import java.util.List;
 import static DriverFactory.DriverFactory.getDriver;
 import static blocks.Product.getProduct;
 
-public class HomePage extends BasePage {
+public class AllProductPage extends BasePage {
 
     @FindBy(xpath = "//div[@itemprop='itemListElement']")
     private List<WebElement> productContainer;
@@ -31,7 +31,7 @@ public class HomePage extends BasePage {
     private WebElement priceHighToLow;
 
 
-    public HomePage() {
+    public AllProductPage() {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -41,29 +41,33 @@ public class HomePage extends BasePage {
         List<Product> allProducts = getProduct(productContainer);
         return allProducts;
     }
+//
+//    public AllProductPage alphabeticallySortingProducts() {
+//        AllProductPage allProductPage = new AllProductPage();
+//
+//    }
 
-
-    public HomePage clickDropDownList() {
+    public AllProductPage clickDropDownList() {
         dropDownList.click();
         return this;
     }
 
-    public HomePage clickFilterNameAtoZ() {
+    public AllProductPage clickFilterNameAtoZ() {
         nameAtoZ.click();
         return this;
     }
 
-    public HomePage clickFilterNameZtoA() {
+    public AllProductPage clickFilterNameZtoA() {
         nameZtoA.click();
         return this;
     }
 
-    public HomePage clickFilterPriceLowToHigh() {
+    public AllProductPage clickFilterPriceLowToHigh() {
         priceLowToHigh.click();
         return this;
     }
 
-    public HomePage clickFilterPriceHighToLow() {
+    public AllProductPage clickFilterPriceHighToLow() {
         priceHighToLow.click();
         return this;
     }

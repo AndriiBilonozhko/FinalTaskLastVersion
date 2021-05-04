@@ -13,7 +13,7 @@ import org.openqa.selenium.support.events.WebDriverListener;
 @Slf4j
 @Getter
 @Setter
-public class MyListerner implements WebDriverEventListener  {
+public class MyListerner implements WebDriverEventListener {
 
     @Override
     public void beforeAlertAccept(WebDriver driver) {
@@ -77,22 +77,22 @@ public class MyListerner implements WebDriverEventListener  {
 
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-
+        log.info("Try find: " + element);
     }
 
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-
+        log.info("Successful find: " + element);
     }
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
-
+        log.info("Try click on: " + element);
     }
 
     @Override
     public void afterClickOn(WebElement element, WebDriver driver) {
-
+        log.info("Successful click on: " + element);
     }
 
     @Override
@@ -142,11 +142,11 @@ public class MyListerner implements WebDriverEventListener  {
 
     @Override
     public void beforeGetText(WebElement element, WebDriver driver) {
-
+        log.info("Try get text with: " + element);
     }
 
     @Override
     public void afterGetText(WebElement element, WebDriver driver, String text) {
-
+        log.info("Successful get text with: " + element);
     }
 }

@@ -175,12 +175,12 @@ public class MainPage extends BasePage {
 
     }
 
-    public HomePage clickAllProductsButton() throws InterruptedException {
+    public AllProductPage clickAllProductsButton() throws InterruptedException {
         WebElement element = allProductsButton;
         scrollToElement(allProductsButton);
 
         allProductsButton.click();
-        return new HomePage();
+        return new AllProductPage();
 
     }
 

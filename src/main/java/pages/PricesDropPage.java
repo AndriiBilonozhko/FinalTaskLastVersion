@@ -28,6 +28,4 @@ public class PricesDropPage extends BasePage {
         return allProducts;
     }
 
-
-
 }
