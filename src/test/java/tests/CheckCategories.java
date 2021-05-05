@@ -1,6 +1,6 @@
 package tests;
 
-import jdk.jfr.Description;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -11,7 +11,7 @@ public class CheckCategories extends BaseTest {
 
 
     @Test
-    public void CheckCategories() {
+    public void CheckCategories() throws InterruptedException {
 
         MainPage mainPage = new MainPage();
 

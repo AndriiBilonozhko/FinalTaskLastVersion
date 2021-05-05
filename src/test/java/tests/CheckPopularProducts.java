@@ -14,7 +14,7 @@ public class CheckPopularProducts extends BaseTest {
 
 
     @Test
-    public void checkPopularProducts() {
+    public void checkPopularProducts()  {
         MainPage mainPage = new MainPage();
         List<Product> nameOfProducts = mainPage.getProductsOnPage();
         for (Product product : nameOfProducts) {

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static DriverFactory.DriverFactory.getDriver;
 import static blocks.Product.getProduct;
@@ -66,7 +67,6 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//a[contains(@class,'all-product')]")
     private WebElement allProductsButton;
 
-
     public MainPage() {
         PageFactory.initElements(getDriver(), this);
     }
@@ -113,18 +113,21 @@ public class MainPage extends BasePage {
     public MainPage moveToClothesButton() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(clothesButton).build().perform();
+        getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         return this;
     }
 
     public MainPage moveToAccessoriesButton() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(accessoriesButton).build().perform();
+        getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         return this;
     }
 
     public MainPage moveToArtButton() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(artButton).build().perform();
+        getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         return this;
     }
 
@@ -160,7 +163,7 @@ public class MainPage extends BasePage {
     }
 
 
-    public List<Product> getProductsOnPage() {
+    public List<Product> getProductsOnPage()  {
 
         List<Product> allProducts = getProduct(productContainer);
         return allProducts;
