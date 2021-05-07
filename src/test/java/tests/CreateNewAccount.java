@@ -6,9 +6,7 @@ import pages.MainPage;
 
 public class CreateNewAccount extends BaseTest {
 
-
     @Test
-
     public void createNewAccount() {
         MainPage mainPage = new MainPage();
         String firstName = "Andrii";

@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.*;
 
 public class CheckPopularProducts extends BaseTest {
 
-
     @Test
     public void checkPopularProducts()  {
         MainPage mainPage = new MainPage();
@@ -21,11 +20,8 @@ public class CheckPopularProducts extends BaseTest {
         for (Product product : nameOfProducts) {
             assertThat(product.getName().isDisplayed());
             assertThat(product.getNewPriceWe().isDisplayed());
-
             double actualPrice = product.getNewPrice();
             assertThat(actualPrice).isGreaterThan(0.00);
-
         }
-
     }
 }

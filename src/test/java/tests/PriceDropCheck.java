@@ -11,19 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PriceDropCheck extends BaseTest {
 
-
     @Test
-
     public void checkPriceDropCheck() throws InterruptedException {
         MainPage mainPage = new MainPage();
         PricesDropPage pricesDropPage = new PricesDropPage();
-
-
         mainPage.clickPricesDropButton();
-
         List<Product> nameOfProducts = pricesDropPage.getProductsOnPage();
         for (Product product : nameOfProducts) {
-
             //TODO soft asserts
             assertThat(product.getNewPriceWe().isDisplayed());
             assertThat(product.getOldPriceWe().isDisplayed());
@@ -35,5 +29,4 @@ public class PriceDropCheck extends BaseTest {
             assertThat(actualPrice).isEqualTo(expectedPrice);
         }
     }
-
 }

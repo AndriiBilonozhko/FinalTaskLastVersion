@@ -6,7 +6,6 @@ import pages.MainPage;
 
 public class GetOurLatestNewsAndSpecialSales extends BaseTest { //TODO rename
 
-
     @Test
     public void getOurLatestNewsAndSpecialSales()  {
         MainPage mainPage = new MainPage();
@@ -15,6 +14,5 @@ public class GetOurLatestNewsAndSpecialSales extends BaseTest { //TODO rename
                         .clickSubscribeButton()
                         .isErrorMessageExist();
         Assert.assertFalse(isErrorTrue);
-
     }
 }

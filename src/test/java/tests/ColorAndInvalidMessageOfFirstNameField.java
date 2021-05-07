@@ -10,9 +10,7 @@ public class ColorAndInvalidMessageOfFirstNameField extends BaseTest { //TODO re
 
     @Test
     public void checkInvalidFormTextOfFirstNameField() {
-
         MainPage mainPage = new MainPage();
-
         LogInPage logInPage =
                 mainPage.clickSingInButton()
                         .clickCreateNewAccountButton()
@@ -28,10 +26,7 @@ public class ColorAndInvalidMessageOfFirstNameField extends BaseTest { //TODO re
 //                        .getTextInvalidForm();
         String actualTextInvalidMessage = logInPage.getTextInvalidForm(); //TODO rename
         String actualColorOfField = logInPage.getColorOfFirstNameField();
-
         Assert.assertEquals(actualTextInvalidMessage, "Invalid format.");
         Assert.assertEquals(actualColorOfField, "rgb(255, 76, 76)");
-
     }
-
 }

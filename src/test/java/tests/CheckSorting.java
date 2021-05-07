@@ -15,16 +15,12 @@ public class CheckSorting extends BaseTest {
     public void checkSorting() throws InterruptedException {
         MainPage mainPage = new MainPage();
         AllProductPage allProductPage = new AllProductPage();
-
         mainPage.clickAllProductsButton()
                 .clickDropDownList()
                 .clickFilterNameAtoZ();
-
             List<Product> nameOfProducts = allProductPage.getProductsOnPage();
             for (Product product : nameOfProducts) {
                 String actualAlphabeticallySortingProducts = product.getName().getText();
             }
-
-
     }
 }
