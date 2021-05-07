@@ -11,10 +11,11 @@ public class CheckCategories extends BaseTest {
 
 
     @Test
-    public void CheckCategories() throws InterruptedException {
+    public void CheckCategories() throws InterruptedException { //TODO InterruptedException
 
         MainPage mainPage = new MainPage();
 
+        //TODO switch case for category moves and checks
         boolean resultMenCategories =
                 mainPage.moveToClothesButton()
                         .isCategoriesManButtonOfClothesFieldDisplayed();
@@ -22,6 +23,7 @@ public class CheckCategories extends BaseTest {
         boolean resultWomenCategories =
                 mainPage.isCategoriesWomenButtonOfClothesFieldDisplayed();
 
+        //TODO soft asserts
         Assert.assertTrue(resultMenCategories, " Categories MEN of clothes button not displayed");
         Assert.assertTrue(resultWomenCategories, " Categories Women of clothes button not displayed");
 

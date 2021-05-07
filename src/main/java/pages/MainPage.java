@@ -72,7 +72,7 @@ public class MainPage extends BasePage {
     }
 
     public MainPage setEmail(String eMail) throws InterruptedException {
-        WebElement element = inputEmailField;
+        WebElement element = inputEmailField; //TODO why extra variable
         scrollToElement(element);
 
         inputEmailField.sendKeys(eMail);
@@ -90,7 +90,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public Boolean isErrorMessageExist() {
+    public Boolean isErrorMessageExist() {  //TODO remove spaces everywhere
 
         return isErrorExist(inputEmailField);
 
@@ -107,7 +107,7 @@ public class MainPage extends BasePage {
     public String getLanguageOutOfTheDropList(String language) {
         if (languagesContainers.contains(language)) ;
         return language;
-
+        //TODO remove spaces everywhere
     }
 
     public MainPage moveToClothesButton() {
@@ -163,7 +163,7 @@ public class MainPage extends BasePage {
     }
 
 
-    public List<Product> getProductsOnPage()  {
+    public List<Product> getProductsOnPage() {
 
         List<Product> allProducts = getProduct(productContainer);
         return allProducts;

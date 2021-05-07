@@ -4,11 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class GetOurLatestNewsAndSpecialSales extends BaseTest {
+public class GetOurLatestNewsAndSpecialSales extends BaseTest { //TODO rename
 
 
     @Test
-    public void getOurLatestNewsAndSpecialSales() throws InterruptedException {
+    public void getOurLatestNewsAndSpecialSales() throws InterruptedException { //TODO InterruptedException not here
 
         MainPage mainPage = new MainPage();
 

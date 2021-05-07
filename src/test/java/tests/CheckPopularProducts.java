@@ -17,12 +17,13 @@ public class CheckPopularProducts extends BaseTest {
     public void checkPopularProducts()  {
         MainPage mainPage = new MainPage();
         List<Product> nameOfProducts = mainPage.getProductsOnPage();
+        //TODO soft aserts
         for (Product product : nameOfProducts) {
             assertThat(product.getName().isDisplayed());
-            assertThat(product.getNewPrice().isDisplayed());
+            assertThat(product.getNewPriceWe().isDisplayed());
 
-            String actualPrice = product.getNewPrice().getText().replace("€", "");
-            assertThat(Double.parseDouble(actualPrice)).isGreaterThan(0.00);
+            double actualPrice = product.getNewPrice();
+            assertThat(actualPrice).isGreaterThan(0.00);
 
         }
 

@@ -24,6 +24,7 @@ public class PriceDropCheck extends BaseTest {
         List<Product> nameOfProducts = pricesDropPage.getProductsOnPage();
         for (Product product : nameOfProducts) {
 
+            //TODO soft sserts
             assertThat(product.getNewPrice().isDisplayed());
             assertThat(product.getOldPrice().isDisplayed());
 

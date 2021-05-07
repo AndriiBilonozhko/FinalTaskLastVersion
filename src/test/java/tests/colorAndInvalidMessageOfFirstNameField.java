@@ -6,9 +6,8 @@ import org.testng.annotations.Test;
 import pages.LogInPage;
 import pages.MainPage;
 
-public class
-colorAndInvalidMessageOfFirstNameField extends BaseTest {
-    public class EventListenerTest {
+public class colorAndInvalidMessageOfFirstNameField extends BaseTest { //TODO rename
+    public class EventListenerTest { //TODO what is this?
         private EventFiringWebDriver decoratedDriver;
 
     }
@@ -16,26 +15,25 @@ colorAndInvalidMessageOfFirstNameField extends BaseTest {
     public void checkInvalidFormTextOfFirstNameField() {
 
         MainPage mainPage = new MainPage();
-        LogInPage logInPage = new LogInPage();
 
-        String actualTextInvalidMessage =
+        LogInPage logInPage =
                 mainPage.clickSingInButton()
                         .clickCreateNewAccountButton()
                         .ChooseSocialTitle()
-                        .inputFirstName("Jame3s")
+                        .inputFirstName("Jame3s")//TODO all fields to up
                         .inputLastName("sdsaq")
                         .inputEmail("asdkasdvksasdsd@gmail.com")
                         .inputPassword("12345")
                         .inputBirthdayDate("12/12/1995")
                         .clickCustomerPrivacyButton()
                         .clickAgreeButton()
-                        .clickSaveButtonWithIncorrectDate()
-                        .getTextInvalidForm();
-
+                        .clickSaveButtonWithIncorrectDate();
+//                        .getTextInvalidForm();
+        String actualTextInvalidMessage = logInPage.getTextInvalidForm(); //TODO rename
         String actualColorOfField = logInPage.getColorOfFirstNameField();
 
         Assert.assertEquals(actualTextInvalidMessage, "Invalid format.");
-        Assert.assertEquals(actualColorOfField, "rgb(255, 76, 76) ");
+        Assert.assertEquals(actualColorOfField, "rgb(255, 76, 76)");
 
     }
 

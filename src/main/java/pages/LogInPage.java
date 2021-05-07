@@ -109,7 +109,7 @@ public class LogInPage extends BasePage {
 
         String style = firstNameField.getCssValue("outline");
         String[] a = style.split("solid");
-        return a[0];
+        return a[0].trim();
 
 
     }

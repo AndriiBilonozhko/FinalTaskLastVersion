@@ -20,7 +20,8 @@ public class Product {
 
     private WebElement name;
     private WebElement oldPrice;
-    private WebElement newPrice;
+    private WebElement newPriceWe;
+    private double newPrice;
     private WebElement discount;
 
     public Product() {
@@ -29,7 +30,8 @@ public class Product {
     public Product(WebElement container) {
 
         this.name = container.findElement(By.xpath(".//a[@itemprop='url']"));
-        this.newPrice = container.findElement(By.xpath(".//span[@class='price']"));
+        this.newPriceWe = container.findElement(By.xpath(".//span[@class='price']"));
+        this.newPrice = Double.parseDouble(container.findElement(By.xpath(".//span[@class='price']")).getText().replace("€", ""));
         this.oldPrice = container.findElement(By.xpath(".//span[@class='regular-price']"));
         this.discount = container.findElement(By.xpath(".//li[@class='product-flag discount']"));
     }
