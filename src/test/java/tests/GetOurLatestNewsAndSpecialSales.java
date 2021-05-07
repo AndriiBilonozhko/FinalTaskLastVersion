@@ -8,11 +8,8 @@ public class GetOurLatestNewsAndSpecialSales extends BaseTest { //TODO rename
 
 
     @Test
-    public void getOurLatestNewsAndSpecialSales() throws InterruptedException { //TODO InterruptedException not here
-
+    public void getOurLatestNewsAndSpecialSales()  {
         MainPage mainPage = new MainPage();
-
-
         Boolean isErrorTrue =
                 mainPage.setEmail("asdaghb")
                         .clickSubscribeButton()

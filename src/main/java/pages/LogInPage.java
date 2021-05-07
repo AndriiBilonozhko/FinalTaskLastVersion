@@ -53,7 +53,7 @@ public class LogInPage extends BasePage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public LogInPage ChooseSocialTitle() {
+    public LogInPage chooseSocialTitle() {
         socialTitleButton.click();
         return this;
 

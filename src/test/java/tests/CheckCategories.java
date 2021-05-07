@@ -11,7 +11,7 @@ public class CheckCategories extends BaseTest {
 
 
     @Test
-    public void CheckCategories() throws InterruptedException { //TODO InterruptedException
+    public void checkCategories()  {
 
         MainPage mainPage = new MainPage();
 

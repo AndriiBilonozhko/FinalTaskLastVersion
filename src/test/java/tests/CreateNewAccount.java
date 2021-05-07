@@ -10,17 +10,14 @@ public class CreateNewAccount extends BaseTest {
     @Test
 
     public void createNewAccount() {
-
         MainPage mainPage = new MainPage();
         String firstName = "Andrii";
         String secondName = "Bilonozhko";
         String expectedAccountName = firstName + " " + secondName;
-
-
         String actualAccountName =
                 mainPage.clickSingInButton()
                         .clickCreateNewAccountButton()
-                        .ChooseSocialTitle()//TODO code convention
+                        .chooseSocialTitle()
                         .inputFirstName(firstName)
                         .inputLastName(secondName)
                         .inputEmail("aswidd@gmail.com") //TODO all methods parameters as variables
@@ -30,8 +27,6 @@ public class CreateNewAccount extends BaseTest {
                         .clickAgreeButton()
                         .clickSaveButton()
                         .getTextFromUserLoginField();
-
         Assert.assertEquals(actualAccountName, expectedAccountName);
-
     }
 }

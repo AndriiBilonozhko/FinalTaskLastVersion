@@ -71,10 +71,9 @@ public class MainPage extends BasePage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public MainPage setEmail(String eMail) throws InterruptedException {
-        WebElement element = inputEmailField; //TODO why extra variable
-        scrollToElement(element);
-
+    @SneakyThrows
+    public MainPage setEmail(String eMail)  {
+        scrollToElement(inputEmailField);
         inputEmailField.sendKeys(eMail);
         return this;
     }

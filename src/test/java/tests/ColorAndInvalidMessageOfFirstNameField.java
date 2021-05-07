@@ -6,11 +6,8 @@ import org.testng.annotations.Test;
 import pages.LogInPage;
 import pages.MainPage;
 
-public class colorAndInvalidMessageOfFirstNameField extends BaseTest { //TODO rename
-    public class EventListenerTest { //TODO what is this?
-        private EventFiringWebDriver decoratedDriver;
+public class ColorAndInvalidMessageOfFirstNameField extends BaseTest { //TODO rename
 
-    }
     @Test
     public void checkInvalidFormTextOfFirstNameField() {
 
@@ -19,7 +16,7 @@ public class colorAndInvalidMessageOfFirstNameField extends BaseTest { //TODO re
         LogInPage logInPage =
                 mainPage.clickSingInButton()
                         .clickCreateNewAccountButton()
-                        .ChooseSocialTitle()
+                        .chooseSocialTitle()
                         .inputFirstName("Jame3s")//TODO all fields to up
                         .inputLastName("sdsaq")
                         .inputEmail("asdkasdvksasdsd@gmail.com")

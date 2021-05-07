@@ -24,19 +24,14 @@ public class PriceDropCheck extends BaseTest {
         List<Product> nameOfProducts = pricesDropPage.getProductsOnPage();
         for (Product product : nameOfProducts) {
 
-            //TODO soft sserts
-            assertThat(product.getNewPrice().isDisplayed());
-            assertThat(product.getOldPrice().isDisplayed());
-
-
-            String actualPrice = product.getNewPrice().getText().replace("€", "");
-            String oldPrice = product.getOldPrice().getText().replace("€", "");
-            double doubleOldPrice = Double.parseDouble(oldPrice);
-            String discount = product.getDiscount().getText().replace("-", "").substring(0, 2);
-            double doubleDiscount = Double.parseDouble(discount);
-            double price = doubleOldPrice - (doubleOldPrice * doubleDiscount / 100);
-            String expectedPrice = String.valueOf(price).substring(0,5);
-
+            //TODO soft asserts
+            assertThat(product.getNewPriceWe().isDisplayed());
+            assertThat(product.getOldPriceWe().isDisplayed());
+            double actualPrice = product.getNewPrice();
+            double oldPrice = product.getOldPrice();
+            double discount = product.getDiscount();
+            double price = oldPrice - (oldPrice * discount / 100);
+            double expectedPrice = Double.parseDouble(String.valueOf(price).substring(0,5));
             assertThat(actualPrice).isEqualTo(expectedPrice);
         }
     }

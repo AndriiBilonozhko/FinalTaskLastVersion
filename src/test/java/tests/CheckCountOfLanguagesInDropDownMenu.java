@@ -8,11 +8,13 @@ import pages.MainPage;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.testng.Assert.*;
+
 public class CheckCountOfLanguagesInDropDownMenu extends BaseTest {
     String expectedResult = "Українська";
 
     @Test
-    public void CheckCountOfLanguagesInDropDownMenu() {//TODO code convention
+    public void checkCountOfLanguagesInDropDownMenu() {
 
         MainPage mainPage = new MainPage();
 
@@ -20,8 +22,8 @@ public class CheckCountOfLanguagesInDropDownMenu extends BaseTest {
                 .getLanguagesContainers();
         List<String> languageList = language.stream().map(s -> s.getText()).collect(Collectors.toList());
         //TODO soft assert here
-        Assert.assertEquals(language.size(), 46);
-        Assert.assertTrue(languageList.contains(expectedResult), "List doesn`t contain language " + expectedResult);
+        assertEquals(language.size(), 46);
+        assertTrue(languageList.contains(expectedResult), "List doesn`t contain language " + expectedResult);
 
     }
 

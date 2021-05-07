@@ -7,7 +7,7 @@
             <class name="tests.CheckCategories" />
             <class name="tests.CheckCountOfLanguagesInDropDownMenu" />
             <class name="tests.CheckPopularProducts" />
-            <class name="tests.colorAndInvalidMessageOfFirstNameField" />
+            <class name="tests.ColorAndInvalidMessageOfFirstNameField" />
             <class name="tests.CreateNewAccount" />
             <class name="tests.PriceDropCheck" />
             <class name="tests.GetOurLatestNewsAndSpecialSales" />
