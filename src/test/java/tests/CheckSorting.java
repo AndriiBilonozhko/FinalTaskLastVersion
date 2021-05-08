@@ -7,17 +7,15 @@ import pages.MainPage;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class CheckSorting extends BaseTest {
 
     @Test
-    public void checkSorting() throws InterruptedException {
+    public void checkSorting()  {
         MainPage mainPage = new MainPage();
         AllProductPage allProductPage = new AllProductPage();
-        mainPage.clickAllProductsButton()
-                .clickDropDownList()
-                .clickFilterNameAtoZ();
+        mainPage.clickOnAllProductsButton()
+                .clickOnDropDownList()
+                .clickOnFilterNameAtoZ();
             List<Product> nameOfProducts = allProductPage.getProductsOnPage();
             for (Product product : nameOfProducts) {
                 String actualAlphabeticallySortingProducts = product.getName().getText();

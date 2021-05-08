@@ -3,6 +3,7 @@ package pages;
 import blocks.Product;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -34,27 +35,6 @@ public class MainPage extends BasePage {
     @FindBy(xpath = ".//ul[contains(@class,'dropdown')]/li")
     private List<WebElement> languagesContainers;
 
-    @FindBy(xpath = "//a[contains(@href,'3-clothes')]")
-    private WebElement clothesButton;
-
-    @FindBy(xpath = "//a[contains(@href,'6-accessories')]")
-    private WebElement accessoriesButton;
-
-    @FindBy(xpath = "//a[contains(@href,'9-art')]")
-    private WebElement artButton;
-
-    @FindBy(xpath = "//a[contains(@href,'4-men')]")
-    private WebElement menCategoryButton;
-
-    @FindBy(xpath = "//a[contains(@href,'5-women')]")
-    private WebElement womenCategoryButton;
-
-    @FindBy(xpath = "//a[contains(@href,'7-stationery')]")
-    private WebElement stationeryButton;
-
-    @FindBy(xpath = "//a[contains(@href,'8-home-accessories')]")
-    private WebElement homeAccessoriesButton;
-
     @FindBy(xpath = "//div[contains(@class,'popover')]")
     private WebElement fieldUnderClothesAndAccessoriesButton;
 
@@ -72,7 +52,7 @@ public class MainPage extends BasePage {
     }
 
     @SneakyThrows
-    public MainPage setEmail(String eMail)  {
+    public MainPage setEmail(String eMail) {
         scrollToElement(inputEmailField);
         inputEmailField.sendKeys(eMail);
         return this;
@@ -83,109 +63,87 @@ public class MainPage extends BasePage {
         return this;
     }
 
-
-    public MainPage clickDropDownMenuWithLanguages() {
+    public MainPage clickOnDropDownMenuWithLanguages() {
         dropDownMenuWithLanguages.click();
         return this;
     }
 
-    public Boolean isErrorMessageExist() {  //TODO remove spaces everywhere
-
+    public Boolean isErrorMessageExist() {
         return isErrorExist(inputEmailField);
-
-
     }
 
     public int getCountOfLanguage() {
         return languagesContainers.size();
-
-
     }
-
 
     public String getLanguageOutOfTheDropList(String language) {
         if (languagesContainers.contains(language)) ;
         return language;
-        //TODO remove spaces everywhere
-    }
-
-    public MainPage moveToClothesButton() {
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(clothesButton).build().perform();
-        getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        return this;
-    }
-
-    public MainPage moveToAccessoriesButton() {
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(accessoriesButton).build().perform();
-        getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        return this;
-    }
-
-    public MainPage moveToArtButton() {
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(artButton).build().perform();
-        getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        return this;
-    }
-
-
-    public boolean isCategoriesManButtonOfClothesFieldDisplayed() {
-        return
-                menCategoryButton.isDisplayed();
-
-    }
-
-    public boolean isCategoriesWomenButtonOfClothesFieldDisplayed() {
-        return
-                womenCategoryButton.isDisplayed();
-
-    }
-
-    public boolean isCategoriesStationeryButtonOfAccessoriesFieldDisplayed() {
-        return
-                stationeryButton.isDisplayed();
-
-    }
-
-    public boolean isCategoriesHomeAccessoriesButtonOfAccessoriesFieldDisplayed() {
-        return
-                homeAccessoriesButton.isDisplayed();
-
     }
 
     public boolean isEmptyFieldUnderArtButton() {
-
         return fieldUnderClothesAndAccessoriesButton.getText().isEmpty();
-
     }
 
-
     public List<Product> getProductsOnPage() {
-
         List<Product> allProducts = getProduct(productContainer);
         return allProducts;
     }
 
-    public PricesDropPage clickPricesDropButton() throws InterruptedException {
-        WebElement element = pricesDropButton;
+    @SneakyThrows
+    public PricesDropPage clickOnPricesDropButton()  {
         scrollToElement(pricesDropButton);
-
         pricesDropButton.click();
         return new PricesDropPage();
-
     }
 
-    public AllProductPage clickAllProductsButton() throws InterruptedException {
-        WebElement element = allProductsButton;
-        scrollToElement(allProductsButton);
-
+    @SneakyThrows
+    public AllProductPage clickOnAllProductsButton() {
+        scrollToElement(this.allProductsButton);
         allProductsButton.click();
         return new AllProductPage();
-
     }
 
+    Actions actions = new Actions(getDriver());
+
+    public MainPage hoverOverTopMenuLinks(String linkName) {
+        String categoryId = null;
+        switch (linkName) {
+            case "CLOTHES":
+                categoryId = "3";
+                break;
+            case "ACCESSORIES":
+                categoryId = "6";
+                break;
+            case "ART":
+                categoryId = "9";
+                break;
+        }
+        String baseXpath = "//li[@id='category-" + categoryId + "']";
+        actions.moveToElement(getDriver().findElement(By.xpath(baseXpath))).build().perform();
+        getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        return this;
+    }
+
+    public boolean isCategoryDisplaying (String linkName) {
+        String categoryId = null;
+        switch (linkName) {
+            case "MEN":
+                categoryId = "4";
+                break;
+            case "WOMEN":
+                categoryId = "5";
+                break;
+            case "STATIONERY":
+                categoryId = "7";
+                break;
+            case "HOME_ACCESSORIES":
+                categoryId = "8";
+                break;
+        }
+        String baseXpath = "//li[@id='category-" + categoryId + "']";
+        return getDriver().findElement(By.xpath(baseXpath)).isDisplayed();
+    }
 }
 
 

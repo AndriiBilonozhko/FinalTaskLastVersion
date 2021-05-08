@@ -1,27 +1,25 @@
 package tests;
 
 import blocks.Product;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
-
 public class CheckPopularProducts extends BaseTest {
 
     @Test
-    public void checkPopularProducts()  {
+    public void checkPopularProducts() {
         MainPage mainPage = new MainPage();
+        SoftAssertions sa = new SoftAssertions();
         List<Product> nameOfProducts = mainPage.getProductsOnPage();
-        //TODO soft aserts
         for (Product product : nameOfProducts) {
-            assertThat(product.getName().isDisplayed());
-            assertThat(product.getNewPriceWe().isDisplayed());
+            sa.assertThat(product.getName().isDisplayed());
+            sa.assertThat(product.getNewPriceWe().isDisplayed());
             double actualPrice = product.getNewPrice();
-            assertThat(actualPrice).isGreaterThan(0.00);
+            sa.assertThat(actualPrice).isGreaterThan(0.00);
+            sa.assertAll();
         }
     }
 }

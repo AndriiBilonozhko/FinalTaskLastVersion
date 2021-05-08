@@ -1,7 +1,7 @@
 package tests;
 
 
-import org.testng.Assert;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
@@ -10,24 +10,24 @@ public class CheckCategories extends BaseTest {
     @Test
     public void checkCategories()  {
         MainPage mainPage = new MainPage();
-        //TODO switch case for category moves and checks
+        SoftAssertions sa = new SoftAssertions();
         boolean resultMenCategories =
-                mainPage.moveToClothesButton()
-                        .isCategoriesManButtonOfClothesFieldDisplayed();
+                mainPage.hoverOverTopMenuLinks("CLOTHES")
+                        .isCategoryDisplaying("MEN");
         boolean resultWomenCategories =
-                mainPage.isCategoriesWomenButtonOfClothesFieldDisplayed();
-        //TODO soft asserts
-        Assert.assertTrue(resultMenCategories, " Categories MEN of clothes button not displayed");
-        Assert.assertTrue(resultWomenCategories, " Categories Women of clothes button not displayed");
+                mainPage.isCategoryDisplaying("WOMEN");
+        sa.assertThat(resultMenCategories).as(" Categories MEN of clothes button not displayed").isTrue();
+        sa.assertThat(resultWomenCategories).as(" Categories Women of clothes button not displayed").isTrue();
         boolean resultHomeAccessoriesButton =
-                mainPage.moveToAccessoriesButton()
-                        .isCategoriesHomeAccessoriesButtonOfAccessoriesFieldDisplayed();
-        boolean resultStationeryButton = mainPage.isCategoriesStationeryButtonOfAccessoriesFieldDisplayed();
-        Assert.assertTrue(resultHomeAccessoriesButton, " Categories Home Accessories of Accessories button not displayed");
-        Assert.assertTrue(resultStationeryButton, " Categories Stationery of Accessories button not displayed");
+                mainPage.hoverOverTopMenuLinks("ACCESSORIES")
+                        .isCategoryDisplaying("STATIONERY");
+        boolean resultStationeryButton = mainPage.isCategoryDisplaying("HOME_ACCESSORIES");
+        sa.assertThat(resultHomeAccessoriesButton).as(" Categories Home Accessories of Accessories button not displayed").isTrue();
+        sa.assertThat(resultStationeryButton).as(" Categories Stationery of Accessories button not displayed").isTrue();
         boolean resultArtButton =
-                mainPage.moveToArtButton()
+                mainPage.hoverOverTopMenuLinks("ART")
                         .isEmptyFieldUnderArtButton();
-        Assert.assertTrue(resultArtButton, "Categories under Art button not empty");
+        sa.assertThat(resultArtButton).as("Categories under Art button not empty").isTrue();
+        sa.assertAll();
     }
 }

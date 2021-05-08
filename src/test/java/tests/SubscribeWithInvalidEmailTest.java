@@ -4,10 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
 
-public class GetOurLatestNewsAndSpecialSales extends BaseTest { //TODO rename
+public class SubscribeWithInvalidEmailTest extends BaseTest {
 
     @Test
-    public void getOurLatestNewsAndSpecialSales()  {
+    public void subscribeWithInvalidEmail()  {
         MainPage mainPage = new MainPage();
         Boolean isErrorTrue =
                 mainPage.setEmail("asdaghb")

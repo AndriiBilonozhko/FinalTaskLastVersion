@@ -30,29 +30,21 @@ public class AllProductPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(), 'Price, high to low')]")
     private WebElement priceHighToLow;
 
-
     public AllProductPage() {
         PageFactory.initElements(getDriver(), this);
     }
 
-
     public List<Product> getProductsOnPage() {
-
         List<Product> allProducts = getProduct(productContainer);
         return allProducts;
     }
-//
-//    public AllProductPage alphabeticallySortingProducts() {
-//        AllProductPage allProductPage = new AllProductPage();
-//
-//    }
 
-    public AllProductPage clickDropDownList() {
+    public AllProductPage clickOnDropDownList() {
         dropDownList.click();
         return this;
     }
 
-    public AllProductPage clickFilterNameAtoZ() {
+    public AllProductPage clickOnFilterNameAtoZ() {
         nameAtoZ.click();
         return this;
     }

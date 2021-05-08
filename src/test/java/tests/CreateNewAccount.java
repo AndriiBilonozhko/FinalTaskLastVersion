@@ -11,6 +11,9 @@ public class CreateNewAccount extends BaseTest {
         MainPage mainPage = new MainPage();
         String firstName = "Andrii";
         String secondName = "Bilonozhko";
+        String email = "aswidd@gmail.com";
+        String password = "12345";
+        String birthdayDate = "12/12/1995";
         String expectedAccountName = firstName + " " + secondName;
         String actualAccountName =
                 mainPage.clickSingInButton()
@@ -18,9 +21,9 @@ public class CreateNewAccount extends BaseTest {
                         .chooseSocialTitle()
                         .inputFirstName(firstName)
                         .inputLastName(secondName)
-                        .inputEmail("aswidd@gmail.com") //TODO all methods parameters as variables
-                        .inputPassword("12345")
-                        .inputBirthdayDate("12/12/1995")
+                        .inputEmail(email)
+                        .inputPassword(password)
+                        .inputBirthdayDate(birthdayDate)
                         .clickCustomerPrivacyButton()
                         .clickAgreeButton()
                         .clickSaveButton()

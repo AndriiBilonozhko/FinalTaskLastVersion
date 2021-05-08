@@ -14,7 +14,6 @@ import static DriverFactory.DriverFactory.getDriver;
 @AllArgsConstructor
 public class LogInPage extends BasePage {
 
-
     @FindBy(xpath = "//input[@name='id_gender'][1]")
     private WebElement socialTitleButton;
 
@@ -48,7 +47,6 @@ public class LogInPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class,'form-group')]//li[@class='alert alert-danger']")
     private WebElement fieldWithInvalidFormText;
 
-
     public LogInPage() {
         PageFactory.initElements(getDriver(), this);
     }
@@ -56,8 +54,6 @@ public class LogInPage extends BasePage {
     public LogInPage chooseSocialTitle() {
         socialTitleButton.click();
         return this;
-
-
     }
 
     public LogInPage inputFirstName(String name) {
@@ -106,16 +102,12 @@ public class LogInPage extends BasePage {
     }
 
     public String getColorOfFirstNameField() {
-
         String style = firstNameField.getCssValue("outline");
         String[] a = style.split("solid");
         return a[0].trim();
-
-
     }
 
-    public String getTextInvalidForm() {
-
+    public String getTextFromInvalidForm() {
         return fieldWithInvalidFormText.getText();
     }
 }

@@ -12,20 +12,15 @@ import static blocks.Product.getProduct;
 
 public class PricesDropPage extends BasePage {
 
-
     @FindBy(xpath = "//div[@itemprop='itemListElement']")
     private List<WebElement> productContainer;
-
 
     public PricesDropPage() {
         PageFactory.initElements(getDriver(), this);
     }
 
-
     public List<Product> getProductsOnPage() {
-
         List<Product> allProducts = getProduct(productContainer);
         return allProducts;
     }
-
 }
