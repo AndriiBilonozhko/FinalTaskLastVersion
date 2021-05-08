@@ -14,10 +14,10 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode
 @ToString
-
 public class Product {
 
-    private WebElement name;
+    private WebElement nameWe;
+    private String name;
     private double oldPrice;
     private WebElement oldPriceWe;
     private WebElement newPriceWe;
@@ -30,7 +30,8 @@ public class Product {
 
     public Product(WebElement container) {
         if (container.getAttribute("innerHTML").contains("name")) {
-            this.name = container.findElement(By.xpath(".//a[@itemprop='url']"));
+            this.nameWe = container.findElement(By.xpath(".//a[@itemprop='url']"));
+            this.name = (container.findElement(By.xpath(".//a[@itemprop='url']")).getText());
         }
         if (container.getAttribute("innerHTML").contains("Price")) {
             this.newPriceWe = container.findElement(By.xpath(".//span[@class='price']"));

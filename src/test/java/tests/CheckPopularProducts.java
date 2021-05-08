@@ -15,10 +15,9 @@ public class CheckPopularProducts extends BaseTest {
         SoftAssertions sa = new SoftAssertions();
         List<Product> nameOfProducts = mainPage.getProductsOnPage();
         for (Product product : nameOfProducts) {
-            sa.assertThat(product.getName().isDisplayed());
+            sa.assertThat(product.getNameWe().isDisplayed());
             sa.assertThat(product.getNewPriceWe().isDisplayed());
-            double actualPrice = product.getNewPrice();
-            sa.assertThat(actualPrice).isGreaterThan(0.00);
+            sa.assertThat(product.getNewPrice()).isGreaterThan(0.00);
             sa.assertAll();
         }
     }
